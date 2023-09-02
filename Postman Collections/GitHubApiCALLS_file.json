@@ -1,0 +1,58 @@
+{
+	"info": {
+		"_postman_id": "08b1ed71-0c60-4bb9-a23b-ccf9bd40f777",
+		"name": "GitHub API Calls {app}",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"_postman_id": "1a546037-ad2a-46cb-86c6-93d957781fc0",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b444bcd8-406f-4c2a-a671-d9ed8af7ba97",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "b04b7d56-f8b7-46d0-acac-dc83fe4c166a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "c68927f5-2083-4db7-8062-3c502cb121c4",
+			"key": "personalAccessToken",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "ff223698-748d-440d-ac5a-21abebc379d2",
+			"key": "username",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
