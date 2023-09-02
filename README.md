@@ -1,6 +1,6 @@
 # RepositoryFetcher
 
-## Application writen in Java 17 and SpringBoot 3. It has been divided on different classes which are responsible for separate logic in the whole application.
+## Application written in Java 17 and SpringBoot 3. It has been divided on different classes which are responsible for separate logic in the whole application.
 
 ## Short explanation of classes mentioned above:
 
