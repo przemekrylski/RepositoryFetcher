@@ -1,0 +1,89 @@
+{
+	"info": {
+		"_postman_id": "08b1ed71-0c60-4bb9-a23b-ccf9bd40f777",
+		"name": "GitHub API Calls {app}",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"id": "1a546037-ad2a-46cb-86c6-93d957781fc0",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "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"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "personalAccessToken",
+						"value": "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",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "username",
+						"value": "przemekrylski",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "http://localhost:8080/api/owner-info"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b444bcd8-406f-4c2a-a671-d9ed8af7ba97",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "b04b7d56-f8b7-46d0-acac-dc83fe4c166a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "d08b1785-3229-4632-98ad-0093e23fb7ed",
+			"key": "personalAccessToken",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "51d9bafb-f40f-47e2-bfc2-78b7e9656503",
+			"key": "username",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
