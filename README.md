@@ -25,7 +25,7 @@ Model - Set of different models/DTOs, each of them is responsible for containing
   /GitHubOwner
   /GitHubRepository
 
-Service - Implementation of user service to fetch and manipulate date from github api, getting repositories, checking if they are forked, getting branches for each repository and the latest commit of each branch.
+Service - Implementation of user service to fetch and manipulate date from github api, getting repositories, checking if they are forked, getting branches for each repository and the latest commit of each branch. For better readability and the ability to maintain and extend the code in the future service could be implemented like /GitHubService as Interface with different method structures and /GitHubServiceImpl implementing GitHubService methods and providing exact logic for each of them.
   /GitHubService
 
 
