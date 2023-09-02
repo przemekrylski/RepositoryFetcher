@@ -2,10 +2,10 @@ package Controller;
 
 import Model.*;
 import Exception.GivenWrongFormatException;
-import Exception.UsernameDoesNotExist;
+import Exception.UsernameDoesNotExistException;
+import Exception.GitHubCallFailedException;
 import Service.GitHubService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -34,11 +34,14 @@ public class GitHubController {
             }
 
             return new ResponseEntity<>(owner, HttpStatus.OK);
-        } catch (UsernameDoesNotExist e) {
-            CustomErrorResponse errorResponse = new CustomErrorResponse(HttpStatus.NOT_FOUND.value(), "GitHub user not found");
+        } catch (UsernameDoesNotExistException e) {
+            CustomErrorResponse errorResponse = new CustomErrorResponse(404, "GitHub user not found");
             return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
         } catch (GivenWrongFormatException e) {
-            CustomErrorResponse errorResponse = new CustomErrorResponse(HttpStatus.NOT_ACCEPTABLE.value(), "GitHub user not found");
+            CustomErrorResponse errorResponse = new CustomErrorResponse(406, "Unsupported XML response");
+            return new ResponseEntity<>(errorResponse, HttpStatus.NOT_ACCEPTABLE);
+        } catch (GitHubCallFailedException e) {
+            CustomErrorResponse errorResponse = new CustomErrorResponse(404, "Failed during API call");
             return new ResponseEntity<>(errorResponse, HttpStatus.NOT_ACCEPTABLE);
         }
     }

@@ -4,8 +4,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.NOT_FOUND)
-public class UsernameDoesNotExist extends RuntimeException {
-    public UsernameDoesNotExist(String message) {
+public class GitHubCallFailedException extends RuntimeException {
+    public GitHubCallFailedException(String message) {
         super(message);
     }
 }

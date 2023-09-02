@@ -1,7 +1,8 @@
 package Service;
 
-import Exception.UsernameDoesNotExist;
+import Exception.UsernameDoesNotExistException;
 import Exception.GivenWrongFormatException;
+import Exception.GitHubCallFailedException;
 import Model.GitHubBranch;
 import Model.GitHubOwner;
 import Model.GitHubRepository;
@@ -13,7 +14,6 @@ import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -31,10 +31,10 @@ public class GitHubService {
             if (ownerResponseEntity.getStatusCode() == HttpStatus.OK) {
                 return ownerResponseEntity.getBody();
             } else {
-                throw new UsernameDoesNotExist("GitHub user not found");
+                throw new UsernameDoesNotExistException("GitHub user not found");
             }
         } catch (HttpClientErrorException.NotFound e) {
-            throw new UsernameDoesNotExist("GitHub user not found");
+            throw new UsernameDoesNotExistException("GitHub user not found");
         }
     }
 
@@ -51,7 +51,7 @@ public class GitHubService {
             }
             return repositories;
         } else {
-            throw new UsernameDoesNotExist("GitHub user not found");
+            throw new UsernameDoesNotExistException("GitHub user not found");
         }
     }
 
@@ -62,7 +62,7 @@ public class GitHubService {
         if (responseEntity.getStatusCode() == HttpStatus.OK) {
             return Arrays.asList(responseEntity.getBody());
         } else {
-            throw new GivenWrongFormatException("Branches not available for the repository");
+            throw new GitHubCallFailedException("Branches not available for the repository");
         }
     }
 
@@ -73,7 +73,7 @@ public class GitHubService {
         if (responseEntity.getStatusCode() == HttpStatus.OK) {
             return responseEntity.getBody();
         } else {
-            throw new GivenWrongFormatException("Last commit SHA not available for the branch");
+            throw new GitHubCallFailedException("Last commit SHA not available for the branch");
         }
     }
 }
